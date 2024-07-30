@@ -15,8 +15,6 @@ jobs:
             ui: gui
           - build_type: RelWithDebInfo
             ui: cli
-          - build_type: RelWithDebInfo
-            scripting: noscripts
     steps:
     - uses: actions/checkout@v4
       with:
@@ -112,8 +110,11 @@ jobs:
         export ASEPRITE=$PWD/build/bin/aseprite
         cd tests
         $XVFB bash run-tests.sh
-    - name: Upload files
-      uses: actions/upload-artifact@v2
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        name: Aseprite
-        path: build/bin/*
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "Dev自动构建"
+        prerelease: false
+        title: "Dev自动构建"
+        files: |
+          build/bin/*
