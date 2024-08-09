@@ -85,7 +85,7 @@ On Fedora:
 
 On Arch:
 
-    sudo pacman -S gcc clang libc++ cmake ninja libx11 libxcursor mesa-libgl fontconfig
+    sudo pacman -S gcc clang libc++ cmake ninja libx11 libxcursor mesa-libgl fontconfig libwebp
 
 On SUSE:
 
@@ -213,7 +213,7 @@ steps as above but when we call `cmake`, we have some differences:
       -DPNG_ARM_NEON:STRING=on \
       -G Ninja \
       ..
-      ninja aseprite
+    ninja aseprite
 
 ### Issues with Retina displays
 
